@@ -6442,6 +6442,22 @@
             "Basic Reinforced Frame S": 1
         }
     },
+    "Uncommon Gravity-Inverted Container XS": {
+        "tier": 2,
+        "type": "Industry & Infrastructure Element",
+        "volume": 3746,
+        "outputQuantity": 1,
+        "time": 1800,
+        "byproducts": {},
+        "industry": "Assembly Line M",
+        "input": {
+            "Basic Screw": 3,
+            "Uncommon Screw": 3,
+            "Uncommon Hydraulics": 5,
+            "Uncommon Mobile Panel S": 1,
+            "Uncommon Standard Frame S": 1
+        }
+    },
     "Container S": {
         "tier": 1,
         "type": "Industry & Infrastructure Element",
@@ -6454,6 +6470,22 @@
             "Basic Component": 36,
             "Basic Hydraulics": 25,
             "Basic Reinforced Frame M": 1
+        }
+    },
+    "Uncommon Gravity-Inverted Container S": {
+        "tier": 2,
+        "type": "Industry & Infrastructure Element",
+        "volume": 3746,
+        "outputQuantity": 1,
+        "time": 7200,
+        "byproducts": {},
+        "industry": "Assembly Line M",
+        "input": {
+            "Basic Screw": 18,
+            "Uncommon Screw": 18,
+            "Uncommon Hydraulics": 25,
+            "Uncommon Mobile Panel M": 1,
+            "Uncommon Standard Frame M": 1
         }
     },
     "Container M": {
@@ -6470,6 +6502,38 @@
             "Basic Reinforced Frame L": 1
         }
     },
+    "Advanced Gravity-Inverted Container M": {
+        "tier": 2,
+        "type": "Industry & Infrastructure Element",
+        "volume": 3746,
+        "outputQuantity": 1,
+        "time": 86400,
+        "byproducts": {},
+        "industry": "Uncommon Assembly Line L",
+        "input": {
+            "Uncommon Screw": 216,
+            "Advanced Hydraulics": 125,
+            "Advanced Mobile Panel L": 1,
+            "Advanced Anti-Gravity Core": 64,
+            "Advanced Standard Frame L": 1
+        }
+    },
+    "Uncommon Gravity-Inverted Container M": {
+        "tier": 2,
+        "type": "Industry & Infrastructure Element",
+        "volume": 3746,
+        "outputQuantity": 1,
+        "time": 28800,
+        "byproducts": {},
+        "industry": "Assembly Line L",
+        "input": {
+            "Basic Screw": 108,
+            "Uncommon Screw": 108,
+            "Uncommon Hydraulics": 125,
+            "Uncommon Mobile Panel L": 1,
+            "Uncommon Standard Frame L": 1
+        }
+    },
     "Container L": {
         "tier": 1,
         "type": "Industry & Infrastructure Element",
@@ -6482,6 +6546,22 @@
             "Basic Component": 432,
             "Basic Hydraulics": 250,
             "Basic Reinforced Frame L": 2
+        }
+    },
+    "Uncommon Gravity-Inverted Container L": {
+        "tier": 2,
+        "type": "Industry & Infrastructure Element",
+        "volume": 3746,
+        "outputQuantity": 1,
+        "time": 57600,
+        "byproducts": {},
+        "industry": "Assembly Line L",
+        "input": {
+            "Basic Screw": 216,
+            "Uncommon Screw": 216,
+            "Uncommon Hydraulics": 250,
+            "Uncommon Mobile Panel L": 2,
+            "Uncommon Standard Frame L": 2
         }
     },
     "Container XL": {
@@ -10404,7 +10484,7 @@
         "outputQuantity": 1,
         "time": 4320,
         "byproducts": {},
-        "industry": "Assembly Line S",
+        "industry": "Uncommon Assembly Line S",
         "input": {
             "Uncommon Connector": 6,
             "Advanced Power System": 5,
@@ -10419,7 +10499,7 @@
         "outputQuantity": 1,
         "time": 17280,
         "byproducts": {},
-        "industry": "Assembly Line M",
+        "industry": "Uncommon Assembly Line M",
         "input": {
             "Uncommon Connector": 36,
             "Advanced Power System": 25,
@@ -10434,7 +10514,7 @@
         "outputQuantity": 1,
         "time": 69120,
         "byproducts": {},
-        "industry": "Assembly Line L",
+        "industry": "Uncommon Assembly Line L",
         "input": {
             "Uncommon Connector": 216,
             "Advanced Power System": 125,
