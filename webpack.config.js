@@ -19,7 +19,7 @@ module.exports = ({ ifDev, ifProd }) => ({
         path: path.join(__dirname, "./dist"),
         filename: "[name].[fullhash].js",
         ...ifProd({
-            publicPath: "/",
+            publicPath: "",
         }),
     },
     devServer: {
