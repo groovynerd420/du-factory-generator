@@ -115,7 +115,7 @@ export function FactoryCount(props: FactoryCountProps) {
             </ul>
             <Divider orientation="left">Set Production Quantity and Maintain Values</Divider>
             <h3>Modular Factory Options</h3>
-            Stop Factory Map on Category: <br />
+            <p>Only Show Industries on the Summary for the below Categories:</p>
             <dl>
                 {categoriesCheckbox}
             </dl>
