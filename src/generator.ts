@@ -6,11 +6,17 @@ import {
     MAX_INDUSTRY_LINKS,
     PerSecond,
 } from "./graph"
-import { CATALYSTS, isOre, Item, getRecipe } from "./items"
+import { CATALYSTS, isOre, Item, getRecipe, Category, matchesCategory } from "./items"
 import { generateDumpRoutes } from "./router"
 import { isTransferContainer, TransferContainer } from "./transfer-container"
 import { isTransferUnit } from "./transfer-unit"
 import { sanityCheck, mergeFactory, unmergeFactory } from "./utils"
+
+export type SelectedCategories = Category[]
+
+export type AddProductionNodeOptions = {
+    filterCategories: SelectedCategories;
+}
 
 /**
  * Add a production node for a given item if it doesn't exist, then call this function
@@ -18,7 +24,12 @@ import { sanityCheck, mergeFactory, unmergeFactory } from "./utils"
  * @param item Item to produce
  * @param factory the FactoryGraph
  */
-function addProductionNode(item: Item, factory: FactoryGraph): FactoryNode {
+function addProductionNode(item: Item, factory: FactoryGraph, options?: AddProductionNodeOptions): FactoryNode {
+
+    if (!options) {
+        options = { filterCategories: [] }
+    }
+
     // Get node if it exists
     const node = factory.getNode(item)
     if (node !== undefined) {
@@ -43,7 +54,7 @@ function addProductionNode(item: Item, factory: FactoryGraph): FactoryNode {
         }
 
         // Add ingredients to tree
-        const inputNode = addProductionNode(ingredient, factory)
+        const inputNode = addProductionNode(ingredient, factory, options)
 
         // Link ingredients to node
         inputNode.addConsumer(productionNode)
@@ -354,6 +365,7 @@ export function buildFactory(
     requirements: Map<Item, { rate: PerSecond; maintain: number }>,
     talentLevels: { [key: string]: number },
     factory?: FactoryGraph,
+    options?: AddProductionNodeOptions
 ) {
     // Start a new graph if necessary
     if (factory === undefined) {
@@ -366,7 +378,7 @@ export function buildFactory(
     // Add required production nodes
     for (const [item, { rate, maintain }] of requirements.entries()) {
         // add or update production node for this item
-        const node = addProductionNode(item, factory)
+        const node = addProductionNode(item, factory, options)
         node.outputRate += rate
         node.maintainedOutput += maintain
     }

@@ -39,6 +39,30 @@ export enum Category {
     WARP_CELLS = "Warp Cells",
 }
 
+export const AllCategories = [
+    Category.AMMO,
+    Category.CATALYST,
+    Category.COMBAT_ELEMENT,
+    Category.COMPLEX_PART,
+    Category.EXCEPTIONAL_PART,
+    Category.FUEL,
+    Category.FUNCTIONAL_PART,
+    Category.FURNITURE_AND_APPLIANCES_ELEMENT,
+    Category.INDUSTRY_AND_INFRASTRUCTURE_ELEMENT,
+    Category.INTERMEDIARY_PART,
+    Category.ORE,
+    Category.PILOTING_ELEMENT,
+    Category.PLANET_ELEMENT,
+    Category.PRODUCT,
+    Category.PRODUCT_HONEYCOMB,
+    Category.PURE,
+    Category.PURE_HONEYCOMB,
+    Category.SCRAP,
+    Category.STRUCTURAL_PART,
+    Category.SYSTEMS_ELEMENT,
+    Category.WARP_CELLS,
+];
+
 /**
  * Item type definition
  */
@@ -49,6 +73,14 @@ export interface Item {
     readonly volume: Liter
     readonly transferBatchSize: Quantity
     readonly transferTime: Seconds
+}
+
+export function matchesCategory(item: Item, category: Category | undefined) {
+    if (!category) {
+        return false;
+    }
+
+    return item.category === category;
 }
 
 /**

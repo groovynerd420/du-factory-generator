@@ -1,10 +1,12 @@
 import * as React from "react"
-import { Button, Row, Col, InputNumber, Divider } from "antd"
-import { Item, Recipe } from "../items"
+import { Button, Row, Col, InputNumber, Divider, Dropdown, Menu, Space, Checkbox } from "antd"
+import { AllCategories, Category, Item, Recipe } from "../items"
 import { FactoryState } from "./factory"
-import { buildFactory } from "../generator"
+import { buildFactory, SelectedCategories } from "../generator"
 import { FactoryGraph, PerSecond } from "../graph"
 import { FactoryInstruction, generateInstructions } from "./generate-instructions"
+import { keys } from "ramda"
+import { CheckboxChangeEvent } from "antd/lib/checkbox"
 
 /**
  * Properties of the FactoryCount component
@@ -33,7 +35,9 @@ interface FactoryCountProps {
      */
     setProductionRate: React.Dispatch<React.SetStateAction<{ [key: string]: number }>>
     setMaintainValue: React.Dispatch<React.SetStateAction<{ [key: string]: number }>>
-
+    setSelectedCategories: React.Dispatch<React.SetStateAction<SelectedCategories>>
+    getSelectedCategories: () => SelectedCategories;
+    
     /**
      * Get the production rate for a given item
      * @param item Item to get assembler count
@@ -78,6 +82,22 @@ interface FactoryCountProps {
  * @param props {@link NewFactoryCountProps}
  */
 export function FactoryCount(props: FactoryCountProps) {
+
+    const categoriesCheckbox = AllCategories.map(c => {
+        return (
+            <dd key={AllCategories.indexOf(c)}><Checkbox key={AllCategories.indexOf(c)} checked={props.getSelectedCategories().includes(c)} onChange={(e) => {
+                props.setSelectedCategories((prevState) => {
+
+                    if (e.target.checked){
+                        return [...prevState, c];
+                    }
+
+                    return [...prevState.filter(x => x !== c)]
+                });
+            }}>{c}</Checkbox></dd>
+        );
+    });
+
     return (
         <React.Fragment>
             <h2>Select Production Quantity and Maintain Values</h2>
@@ -94,6 +114,11 @@ export function FactoryCount(props: FactoryCountProps) {
                 </li>
             </ul>
             <Divider orientation="left">Set Production Quantity and Maintain Values</Divider>
+            <h3>Modular Factory Options</h3>
+            Stop Factory Map on Category: <br />
+            <dl>
+                {categoriesCheckbox}
+            </dl>
             <Row className="tableHeader">
                 <Col span={3}>Item</Col>
                 <Col span={3}>Produce Per Day</Col>
@@ -139,6 +164,7 @@ export function FactoryCount(props: FactoryCountProps) {
                             props.getRequirements(),
                             props.talentLevels,
                             props.factory,
+                            { filterCategories: props.getSelectedCategories() }
                         )
                         props.setFactory(newFactory)
                         props.setFactoryInstructions(

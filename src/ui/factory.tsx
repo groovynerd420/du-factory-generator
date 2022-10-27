@@ -1,5 +1,5 @@
 import * as React from "react"
-import { isCraftable, Item, ITEMS, Recipe, getRecipe } from "../items"
+import { isCraftable, Item, ITEMS, Recipe, getRecipe, Category } from "../items"
 import { values } from "ramda"
 import { AppState } from "./app"
 import { Button, Upload, Row, Col, Divider } from "antd"
@@ -9,6 +9,7 @@ import { FactoryGraph, PerSecond } from "../graph"
 import { FactoryVisualization } from "./render-factory"
 import { deserialize } from "../serialize"
 import { FactoryInstruction } from "./generate-instructions"
+import { SelectedCategories } from "../generator"
 
 export enum FactoryState {
     UPLOAD = "upload",
@@ -36,6 +37,8 @@ interface FactoryProps {
 
     // Starting factory state
     startFactoryState: FactoryState
+
+    selectedCategories: SelectedCategories;
 }
 
 /**
@@ -47,6 +50,7 @@ export function Factory(props: FactoryProps) {
     const items = React.useMemo(() => values(ITEMS).filter(isCraftable), [ITEMS])
     // current and previous factory state
     const [factoryState, setFactoryState] = React.useState<FactoryState>(props.startFactoryState)
+    const [selectedCategories, setSelectedCategories] = React.useState<SelectedCategories>(props.selectedCategories)
     // error message
     const [errorMessage, setErrorMessage] = React.useState<string>()
     //  factory building instructions instructions
@@ -79,6 +83,7 @@ export function Factory(props: FactoryProps) {
                 { rate: getProductionRate(item), maintain: getMaintainValue(item) },
             ]),
         )
+    const getSelectedCategories = () => selectedCategories;
 
     switch (factoryState) {
         default:
@@ -148,6 +153,8 @@ export function Factory(props: FactoryProps) {
                     <ExistingFactorySummary factory={startingFactory} />
                     <FactoryCount
                         selection={selection}
+                        getSelectedCategories={getSelectedCategories}
+                        setSelectedCategories={setSelectedCategories}
                         recipes={recipes}
                         setFactoryState={setFactoryState}
                         setErrorMessage={setErrorMessage}
@@ -167,6 +174,7 @@ export function Factory(props: FactoryProps) {
         case FactoryState.RENDER:
             return (
                 <FactoryVisualization
+                    selectedCategories={getSelectedCategories()}
                     factory={factory}
                     setFactory={setFactory}
                     startingFactory={startingFactory}

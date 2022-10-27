@@ -4,6 +4,8 @@ import { Info } from "./info"
 import { Factory, FactoryState } from "./factory"
 import { SetTalents, parseTalentLevelJSON } from "./set-talents"
 import { SetOrePrices, parseOrePricesJSON } from "./set-ore-prices"
+import { SelectedCategories } from "../generator"
+import { AllCategories } from "../items"
 
 export enum AppState {
     HOME = "home",
@@ -28,6 +30,7 @@ export enum OrePricesState {
  * Main application component
  */
 export function App() {
+    const [selectedCategories, setSelectedCategories] = React.useState<SelectedCategories>(AllCategories);
     const [appState, setAppState] = React.useState<AppState>(AppState.HOME)
     const [talentState, setTalentState] = React.useState<TalentState>(TalentState.UNSET)
     const [talentLevels, setTalentLevels] = React.useState<{ [key: string]: number }>({})
@@ -147,6 +150,7 @@ export function App() {
         case AppState.NEWFACTORY:
             content = (
                 <Factory
+                    selectedCategories={selectedCategories}
                     setAppState={setAppState}
                     talentLevels={talentLevels}
                     orePrices={orePrices}
@@ -157,6 +161,7 @@ export function App() {
         case AppState.OLDFACTORY:
             content = (
                 <Factory
+                    selectedCategories={selectedCategories}
                     setAppState={setAppState}
                     talentLevels={talentLevels}
                     orePrices={orePrices}

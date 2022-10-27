@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Button, Row, Col, Table, Space, Divider, Popover } from "antd"
-import { Category, Tier, Item, CONTAINERS_ASCENDING_BY_CAPACITY, getRequiredOres } from "../items"
+import { Category, Tier, Item, CONTAINERS_ASCENDING_BY_CAPACITY, getRequiredOres, matchesCategory } from "../items"
 import { FactoryGraph } from "../graph"
 import { FactoryState } from "./factory"
 import { serialize } from "../serialize"
@@ -8,6 +8,7 @@ import { FactoryInstruction, sortName } from "./generate-instructions"
 import { FactoryMap } from "./factory-map"
 import { Container } from "../container"
 import { TransferContainer } from "../transfer-container"
+import { SelectedCategories } from "../generator"
 const example = require("../assets/example.png")
 
 enum VisualizationState {
@@ -139,6 +140,8 @@ export interface FactoryVisualizationProps extends FactoryVisualizationComponent
     // the factory graph
     factory: FactoryGraph | undefined
 
+    selectedCategories: SelectedCategories;
+
     /**
      * Set the factory
      * @param factory the FactoryGraph
@@ -173,6 +176,7 @@ export function FactoryVisualization({
     instructions,
     selection,
     orePrices,
+    selectedCategories
 }: FactoryVisualizationProps) {
     // The state of the visualization
     const [visualizationState, setVisualizationState] = React.useState<VisualizationState>()
@@ -199,7 +203,9 @@ export function FactoryVisualization({
             const oreValues: { [key: string]: number } = {}
 
             if (factory !== undefined) {
-                Array.from(factory.industries).map((node) => {
+                Array.from(factory.industries)
+                .filter((node) => selectedCategories.includes(node.item.category))
+                .map((node) => {
                     const industry = TIER[node.item.tier] + node.recipe.industry
                     totalIndustries += 1
                     if (industryCount[industry] === undefined) {

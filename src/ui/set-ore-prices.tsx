@@ -149,7 +149,7 @@ function SetOrePricesRow(props: SetOrePricesRowProps) {
                 <InputNumber
                     min={0}
                     value={props.value}
-                    onChange={(value: string | number | undefined) =>
+                    onChange={(value: number | null) =>
                         props.setOrePrices(Number(value))
                     }
                 />
