@@ -1,7 +1,5 @@
 # Dual Universe Factory Generator
 
-Use the application here: https://tvwenger.github.io/du-factory-generator/latest/
-
 This is an application for generating a factory plan for [Dual
 Universe](https://www.dualuniverse.game/). Given a set of items, the
 number of assemblers producing each item, and the quantity to maintain
@@ -15,56 +13,15 @@ Here is an example factory plan, where we produce each type of fuel:
 ![Example Factory Plan](./src/assets/example-map.svg)
 
 [Load the
-application](https://tvwenger.github.io/du-factory-generator/latest/) and
-click "Help Information" for information about using this tool.
+application](https://jaybizz.github.io/du-factory-generator/).
 
 Previous versions of the tool [can be found here](https://tvwenger.github.io/du-factory-generator/).
-
-## Frequently Asked Questions
-
-TBD
-
-## Installation
-
-### Prerequisites
-
-[NodeJS](https://nodejs.org/en/)
-
-### Install Dependencies and Build
-
-```bash
-$ npm install
-$ npm run build
-```
-
-### Launch Development Server
-
-```bash
-$ npm start
-```
-
-Navigate your browser to http://localhost:8080/
-
-## Bugs & Feature Requests
-
-Please submit an
-[issue](https://github.com/tvwenger/du-factory-generator/issues) to
-report bugs or request new features.
 
 ## Contributing
 
 DU Factory Generator is an open source project, and we welcome user
 contributions to improve and expand its functionality! Feel free to
 submit a pull request for anything from small fixes to big enhancements.
-
-This project uses [Prettier](https://prettier.io/) for code formatting
-and [TSLint](https://palantir.github.io/tslint/) for enforcing code
-styles.
-
-## Contact
-
-Join our [Discord server](https://discord.gg/gXSWKqVnHx) and look for
-`Nikolaus`.
 
 ## Contributors
 
