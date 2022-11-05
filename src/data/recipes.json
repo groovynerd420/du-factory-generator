@@ -6479,17 +6479,33 @@
     "Uncommon Gravity-Inverted Container XS": {
         "tier": 2,
         "type": "Industry & Infrastructure Element",
-        "volume": 3746,
+        "volume": 64,
         "outputQuantity": 1,
         "time": 1800,
         "byproducts": {},
-        "industry": "Assembly Line M",
+        "industry": "Assembly Line S",
         "input": {
             "Basic Screw": 3,
             "Uncommon Screw": 3,
             "Uncommon Hydraulics": 5,
             "Uncommon Mobile Panel S": 1,
             "Uncommon Standard Frame S": 1
+        }
+    },
+    "Advanced Gravity-Inverted Container XS": {
+        "tier": 3,
+        "type": "Industry & Infrastructure Element",
+        "volume": 64,
+        "outputQuantity": 1,
+        "time": 1800,
+        "byproducts": {},
+        "industry": "Uncommon Assembly Line S",
+        "input": {
+            "Uncommon Screw": 6,
+            "Advanced Hydraulics": 5,
+            "Advanced Mobile Panel S": 1,
+            "Advanced Standard Frame S": 1,
+            "Advanced Anti-Gravity Core": 4
         }
     },
     "Container S": {
@@ -6509,7 +6525,7 @@
     "Uncommon Gravity-Inverted Container S": {
         "tier": 2,
         "type": "Industry & Infrastructure Element",
-        "volume": 3746,
+        "volume": 342,
         "outputQuantity": 1,
         "time": 7200,
         "byproducts": {},
@@ -6520,6 +6536,22 @@
             "Uncommon Hydraulics": 25,
             "Uncommon Mobile Panel M": 1,
             "Uncommon Standard Frame M": 1
+        }
+    },
+    "Advanced Gravity-Inverted Container S": {
+        "tier": 3,
+        "type": "Industry & Infrastructure Element",
+        "volume": 342,
+        "outputQuantity": 1,
+        "time": 21600,
+        "byproducts": {},
+        "industry": "Uncommon Assembly Line M",
+        "input": {
+            "Uncommon Screw": 36,
+            "Advanced Hydraulics": 25,
+            "Advanced Mobile Panel M": 1,
+            "Advanced Anti-Gravity Core": 16,
+            "Advanced Standard Frame M": 1
         }
     },
     "Container M": {
@@ -6537,9 +6569,9 @@
         }
     },
     "Advanced Gravity-Inverted Container M": {
-        "tier": 2,
+        "tier": 3,
         "type": "Industry & Infrastructure Element",
-        "volume": 3746,
+        "volume": 1873,
         "outputQuantity": 1,
         "time": 86400,
         "byproducts": {},
@@ -6555,7 +6587,7 @@
     "Uncommon Gravity-Inverted Container M": {
         "tier": 2,
         "type": "Industry & Infrastructure Element",
-        "volume": 3746,
+        "volume": 1873,
         "outputQuantity": 1,
         "time": 28800,
         "byproducts": {},
