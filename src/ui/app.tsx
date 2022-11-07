@@ -68,10 +68,9 @@ export function App() {
                     intermediate industries. Therefore, this is a factory plan that will maximize
                     production efficiency even after production interruptions. If you encouter any
                     problems or would like to request new features, please submit an{" "}
-                    <a href="https://github.com/tvwenger/du-factory-generator/issues">
+                    <a href="https://jaybizz.github.io/du-factory-generator/issues">
                         issue on Github
                     </a>
-                    , or <a href="https://discord.gg/gXSWKqVnHx">join our Discord server</a>.
                     <Divider orientation="left">Instructions</Divider>
                     <ul>
                         <li>Set or update talents as necessary.</li>
@@ -91,11 +90,13 @@ export function App() {
                                 {talentState === TalentState.SET ? "Update Talents" : "Set Talents"}
                             </Button>
                         </Col>
-                        <Col span={3}>
-                            {talentState === TalentState.SET
-                                ? "Talents are set"
-                                : "Talents have not been set"}
-                        </Col>
+                        <br>
+                            <Col span={3}>
+                                {talentState === TalentState.SET
+                                    ? "Talents are set"
+                                    : "Talents have not been set"}
+                            </Col>
+                        </br>
                     </Row>
                     <Row>
                         <Col span={3}>
@@ -105,11 +106,13 @@ export function App() {
                                     : "Set Ore Prices"}
                             </Button>
                         </Col>
-                        <Col span={3}>
-                            {orePricesState === OrePricesState.SET
-                                ? "Ore prices are set"
-                                : "Ore prices have not been set"}
-                        </Col>
+                        <br>
+                            <Col span={3}>
+                                {orePricesState === OrePricesState.SET
+                                    ? "Ore prices are set"
+                                    : "Ore prices have not been set"}
+                            </Col>
+                        </br>
                     </Row>
                     <Divider orientation="left">Generate Factory</Divider>
                     <Space>
