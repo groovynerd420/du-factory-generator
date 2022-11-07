@@ -90,13 +90,13 @@ export function App() {
                                 {talentState === TalentState.SET ? "Update Talents" : "Set Talents"}
                             </Button>
                         </Col>
-                        <br>
-                            <Col span={3}>
+                        <p>
+                        <Col span={3}>
                                 {talentState === TalentState.SET
                                     ? "Talents are set"
                                     : "Talents have not been set"}
-                            </Col>
-                        </br>
+                        </Col>
+                        </p>
                     </Row>
                     <Row>
                         <Col span={3}>
@@ -106,13 +106,13 @@ export function App() {
                                     : "Set Ore Prices"}
                             </Button>
                         </Col>
-                        <br>
-                            <Col span={3}>
+                        <p>
+                        <Col span={3}>
                                 {orePricesState === OrePricesState.SET
                                     ? "Ore prices are set"
                                     : "Ore prices have not been set"}
-                            </Col>
-                        </br>
+                        </Col>
+                        </p>
                     </Row>
                     <Divider orientation="left">Generate Factory</Divider>
                     <Space>
