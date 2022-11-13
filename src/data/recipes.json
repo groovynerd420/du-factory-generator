@@ -6497,7 +6497,7 @@
         "type": "Industry & Infrastructure Element",
         "volume": 64,
         "outputQuantity": 1,
-        "time": 1800,
+        "time": 5400,
         "byproducts": {},
         "industry": "Uncommon Assembly Line S",
         "input": {
@@ -6568,22 +6568,6 @@
             "Basic Reinforced Frame L": 1
         }
     },
-    "Advanced Gravity-Inverted Container M": {
-        "tier": 3,
-        "type": "Industry & Infrastructure Element",
-        "volume": 1873,
-        "outputQuantity": 1,
-        "time": 86400,
-        "byproducts": {},
-        "industry": "Uncommon Assembly Line L",
-        "input": {
-            "Uncommon Screw": 216,
-            "Advanced Hydraulics": 125,
-            "Advanced Mobile Panel L": 1,
-            "Advanced Anti-Gravity Core": 64,
-            "Advanced Standard Frame L": 1
-        }
-    },
     "Uncommon Gravity-Inverted Container M": {
         "tier": 2,
         "type": "Industry & Infrastructure Element",
@@ -6598,6 +6582,22 @@
             "Uncommon Hydraulics": 125,
             "Uncommon Mobile Panel L": 1,
             "Uncommon Standard Frame L": 1
+        }
+    },
+    "Advanced Gravity-Inverted Container M": {
+        "tier": 3,
+        "type": "Industry & Infrastructure Element",
+        "volume": 1873,
+        "outputQuantity": 1,
+        "time": 86400,
+        "byproducts": {},
+        "industry": "Uncommon Assembly Line L",
+        "input": {
+            "Uncommon Screw": 216,
+            "Advanced Hydraulics": 125,
+            "Advanced Mobile Panel L": 1,
+            "Advanced Anti-Gravity Core": 64,
+            "Advanced Standard Frame L": 1
         }
     },
     "Container L": {
@@ -6631,11 +6631,11 @@
         }
     },
     "Advanced Gravity-Inverted Container L": {
-        "tier": 4,
+        "tier": 3,
         "type": "Industry & Infrastructure Element",
         "volume": 3746,
         "outputQuantity": 1,
-        "time": 518400,
+        "time": 172800,
         "byproducts": {},
         "industry": "Uncommon Assembly Line L",
         "input": {
